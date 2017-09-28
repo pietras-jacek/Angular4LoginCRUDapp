@@ -28,7 +28,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     LogoutComponent,
     AccountComponent,
     AdminComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AssetsComponent
   ],
   imports: [
     BrowserModule,
