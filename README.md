@@ -3,7 +3,7 @@
 Warstwa front-endowa została stworzona z wykorzystaniem narzędzia [Angular CLI](https://github.com/angular/angular-cli). Warstwa backendowa została stworzona od samego początku. Cała aplikacja została napisana z wykorzystaniem języka [TypeScript](https://www.typescriptlang.org).
 
 Aplikacja została napisana z wykorzystaniem technologi [MEAN stack](https://en.wikipedia.org/wiki/MEAN_(software_bundle)):
-* [**M**ongoose.js](http://www.mongoosejs.com) ([MongoDB](https://www.mongodb.com)): database
+* [**M**ongoose.js](http://www.mongoosejs.com) ([MongoDB](https://www.mongodb.com)): Baza danych
 * [**E**xpress.js](http://expressjs.com): Serwer aplikacji
 * [**A**ngular 4](https://angular.io): Framework frontendowy 
 * [**N**ode.js](https://nodejs.org): Środowisko uruchomieniowe
