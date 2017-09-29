@@ -1,3 +1,30 @@
-<p>
-  account works!
-</p>
+<app-loading [condition]="isLoading"></app-loading>
+
+<app-toast [message]="toast.message"></app-toast>
+
+<div>
+  <h4 class="card-header">Ustawienia konta</h4>
+  <div class="card-block">
+    <form #accountform="ngForm" (ngSubmit)="save(user)" action="">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input class="form-control" type="text" name="email" [(ngModel)]="user.email" placeholder="Email" required>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+        <input type="email" name="email" [(ngModel)]="user.email" placeholder="Email" required>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-black-tie"></i></span>
+        <select class="form-control" name="role" [(ngModel)]="user.role" id="">
+          <option value="" disabled>Rodzaj konta</option>
+          <option value="user">Zwykły</option>
+          <option value="admin">Administrator</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="!accountForm.form.valid">
+        <i class="fa fa-save">Zapisz</i>
+      </button>
+    </form>
+  </div>
+</div>

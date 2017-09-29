@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastComponent } from '../shared/toast/toast.component';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-account',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
 
-  constructor() { }
+  user = {};
+  isLoading = true;
+
+  constructor(private auth: AuthService,
+              public toast: ToastComponent,
+              private userService: UserService) { }
 
   ngOnInit() {
+    this.getUser();
+  }
+
+  getUser() {
+    this.userService.getUser()
   }
 
 }

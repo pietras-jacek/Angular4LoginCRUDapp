@@ -17,6 +17,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoadingComponent } from './shared/loading/loading.component';
+import { ToastComponent } from './shared/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AccountComponent,
     AdminComponent,
     NotFoundComponent,
-    AssetsComponent
+    AssetsComponent,
+    LoadingComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
