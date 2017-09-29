@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ToastComponent } from '../shared/toast/toast.component';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -7,9 +11,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  users = [];
+  isLoading = true;
+
+  constructor(public auth: AuthService,
+              public toast: ToastComponent,
+              public userService: UserService) { }
 
   ngOnInit() {
+    this.getUsers();
+  }
+
+  getUsers() {
+    this.userService.getUsers().subscribe(
+      data => this.users = data,
+      error => console.log(error),
+      () => this.isLoading = false
+    );
+  }
+
+  deleteUser(user) {
+    this.userService.deleteUser(user).subscribe(
+      data => this.toast.setMessage('Użytkownik został usunięty', 'success'),
+      error => console.log(error),
+      () => this.getUsers()
+    );
   }
 
 }

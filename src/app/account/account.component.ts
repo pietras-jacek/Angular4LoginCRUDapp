@@ -1,3 +1,4 @@
+import { *asbcrypt } from 'bcryptjs';
 import { Component, OnInit } from '@angular/core';
 import { ToastComponent } from '../shared/toast/toast.component';
 import { AuthService } from '../services/auth.service';
@@ -22,7 +23,17 @@ export class AccountComponent implements OnInit {
   }
 
   getUser() {
-    this.userService.getUser()
+    this.userService.getUser(this.auth.currentUser).subscribe(
+      data => this.user = data,
+      error => console.log(error),
+      () => this.isLoading = false
+    );
   }
 
+  save(user) {
+    this.user.editUser(user).subscribe(
+      res => this.toast.setMessage('zapisano ustawienia konta', 'success')
+      error => console.log(error)
+    );
+  }
 }
