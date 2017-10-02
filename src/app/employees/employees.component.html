@@ -1,3 +1,88 @@
-<p>
-  employees works!
-</p>
+<app-loading [condition]="isLoading"></app-loading>
+
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="card" *ngIf="!isLoading">
+  <h4 class="card-header">Ilość dodanych pracowników ({{employees.length}})</h4>
+  <div class="card-block">
+    <table class="table table-borderred table-striped">
+      <thead aria-checked="thead-default">
+        <tr>
+          <th>Imię</th>
+          <th>Nazwisko</th>
+          <th>Ulica</th>
+          <th>Miasto</th>
+          <th>Kod pocztowy</th>
+          <th>Data urodzenia</th>
+          <th>Numer telefonu</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="employees.length === 0">
+        <tr>
+          <td colspan="4">Brak pracowników w bazie danych. Dodaj nowego.</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="!isEditing">
+        <tr *ngFor="let employee of employees">
+          <td>employee.firstname</td>
+          <td>employee.lastname</td>
+          <td>employee.street</td>
+          <td>employee.city</td>
+          <td>employee.postcode</td>
+          <td>employee.birthdate</td>
+          <td>employee.telephone</td>
+          <td>
+            <button class="btn btn-sm btn-warning" (click)="enableEditing(employee)"><i class="fa fa-pencil"></i> Edytuj</button>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="isEditing">
+        <tr>
+          <td colspan="4">
+            <form class="form-inline" #form="ngForm" (ngSubmit)="editEmployee(employee)" style="display:inline">
+              <div class="form-group">
+                <input class="form-control" type="text" name="firstname" [(ngModel)]="employee.firstname" placeholder="Imię" required>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="lastname" [(ngModel)]="employee.lastname" placeholder="Nazwisko" required>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="street" [(ngModel)]="employee.street" placeholder="Ulica" required>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="city" [(ngModel)]="employee.city" placeholder="Miasto" required>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="postcode" [(ngModel)]="employee.postcode" placeholder="Kod pocztowy" required>
+              </div>
+              <div class="form-gorup">
+                <input class="form-control" type="date" name="birthdate" [(ngModel)]="employee.birthdate" placeholder="Data Urodzenia" required>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="text" name="telephone" [(ngModel)]="employee.telephone" placeholder="Numer telefonu" required></div>
+              <button class="btn btn-sm btn-primary" type="submit" [disabled]="!form.form.valid"><i class="fa fa-floppy-o"></i> Zapisz</button>
+            </form>
+            <button class="btn btn-sm btn-warning" (click)="cancelEditing()"><i class="fa fa-times"></i> Anuluj</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card" *ngIf="!isEditing">
+  <h4 class="card-header">Dodaj nowego pracownika</h4>
+  <div class="card-block">
+    <form class="form-inline" [formGroup]="AddEmployeeForm" (ngSubmit)="addEmployee()" style="text-align: center">
+      <div class="form-inline">
+        <input class="form-control" type="text" name="firstname" formControlName="firstname" placeholder="Imię"></div>
+      <div><input type="text"></div>
+      <div><input type="text"></div>
+      <div><input type="text"></div>
+      <div><input type="text"></div>
+      <div><input type="text"></div>
+      <div><input type="text"></div>
+      <button></button>
+    </form>
+  </div>
+</div>
