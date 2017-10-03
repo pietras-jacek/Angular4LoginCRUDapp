@@ -6,7 +6,7 @@
   <h4 class="card-header">Ilość dodanych pracowników ({{employees.length}})</h4>
   <div class="card-block">
     <table class="table table-bordered table-striped">
-      <thead aria-checked="thead-default">
+      <thead class="thead-default">
         <tr>
           <th>Imię</th>
           <th>Nazwisko</th>
@@ -74,7 +74,7 @@
 <div class="card" *ngIf="!isEditing">
   <h4 class="card-header">Dodaj nowego pracownika</h4>
   <div class="card-block">
-    <form class="form-inline" [formGroup]="addEmployeeForm" (ngSubmit)="addEmployee()" style="text-align: center">
+    <form class="form-horizontal" [formGroup]="addEmployeeForm" (ngSubmit)="addEmployee()" style="text-align:center">
       <div class="form-group">
         <input class="form-control" type="text" name="firstname" formControlName="firstname" placeholder="Imię">
       </div>

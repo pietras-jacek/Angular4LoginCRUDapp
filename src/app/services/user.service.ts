@@ -37,11 +37,11 @@ export class UserService {
     }
 
     editUser(user): Observable<any> {
-        return this.http.put(`/api/user/${user._id0}`, JSON.stringify(user), this.options);
+        return this.http.put(`/api/user/${user._id}`, JSON.stringify(user), this.options);
     }
 
     deleteUser(user): Observable<any> {
-        return this.http.delete(`/api/user/${user._id}`, this.options)
+        return this.http.delete(`/api/user/${user._id}`, this.options);
     }
 
 }

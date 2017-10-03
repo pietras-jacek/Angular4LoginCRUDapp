@@ -5,7 +5,7 @@
 <div class="card" *ngIf="!isLoading">
   <h4 class="card-header">Ustawienia konta</h4>
   <div class="card-block">
-    <form #accountform="ngForm" (ngSubmit)="save(user)" action="">
+    <form #accountForm="ngForm" (ngSubmit)="save(user)">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-user"></i></span>
         <input class="form-control" type="text" name="username" [(ngModel)]="user.username" placeholder="Login" required>
@@ -16,14 +16,14 @@
       </div>
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-black-tie"></i></span>
-        <select class="form-control" name="role" [(ngModel)]="user.role" id="">
+        <select class="form-control" name="role" [(ngModel)]="user.role">
           <option value="" disabled>Rodzaj konta</option>
           <option value="user">Zwykłe</option>
           <option value="admin">Administrator</option>
         </select>
       </div>
       <button class="btn btn-primary" type="submit" [disabled]="!accountForm.form.valid">
-        <i class="fa fa-save">Zapisz</i>
+        <i class="fa fa-save"></i> Zapisz
       </button>
     </form>
   </div>
