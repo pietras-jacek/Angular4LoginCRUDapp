@@ -59,7 +59,8 @@
                 <input class="form-control" type="date" name="birthdate" [(ngModel)]="employee.birthdate" placeholder="Data Urodzenia" required>
               </div>
               <div class="form-group">
-                <input class="form-control" type="text" name="telephone" [(ngModel)]="employee.telephone" placeholder="Numer telefonu" required></div>
+                <input class="form-control" type="text" name="telephone" [(ngModel)]="employee.telephone" placeholder="Numer telefonu" required>
+              </div>
               <button class="btn btn-sm btn-primary" type="submit" [disabled]="!form.form.valid"><i class="fa fa-floppy-o"></i> Zapisz</button>
             </form>
             <button class="btn btn-sm btn-warning" (click)="cancelEditing()"><i class="fa fa-times"></i> Anuluj</button>
@@ -73,16 +74,28 @@
 <div class="card" *ngIf="!isEditing">
   <h4 class="card-header">Dodaj nowego pracownika</h4>
   <div class="card-block">
-    <form class="form-inline" [formGroup]="AddEmployeeForm" (ngSubmit)="addEmployee()" style="text-align: center">
+    <form class="form-inline" [formGroup]="addEmployeeForm" (ngSubmit)="addEmployee()" style="text-align: center">
       <div class="form-inline">
-        <input class="form-control" type="text" name="firstname" formControlName="firstname" placeholder="Imię"></div>
-      <div><input type="text"></div>
-      <div><input type="text"></div>
-      <div><input type="text"></div>
-      <div><input type="text"></div>
-      <div><input type="text"></div>
-      <div><input type="text"></div>
-      <button></button>
+        <input class="form-control" type="text" name="firstname" formControlName="firstname" placeholder="Imię">
+      </div>
+      <div class="form-inline">
+        <input class="form-control" type="text" name="lastname" formControlName="lastname" placeholder="Nazwisko">
+      </div>
+      <div class="form-inline">
+        <input class="form-control" type="text" name="street" formControlName="street" placeholder="Ulica">
+      </div>
+      <div class="form-inline">
+        <input class="form-control" type="text" name="city" formControlName="city" placeholder="Miasto">
+      </div>
+      <div class="form-inline">
+        <input class="form-control" type="text" name="postcode" formControlName="postcode" placeholder="Kod pocztowy">
+      </div>
+      <div class="form-inline">
+        <input class="form-control" type="date" name="birthdate" formControlName="birthdate" placeholder="Data urodzenia">
+      </div>
+      <div class="form-inline">
+        <input class="form-control" type="text" name="telephone" formControlName="telephone" placeholder="Numer telefonu"></div>
+      <button class="btn btn-primary" type="submit" [disabled]="!addEmployeeForm.valid"><i class="fa fa-floppy-o"></i> Dodaj</button>
     </form>
   </div>
 </div>
