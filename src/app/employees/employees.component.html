@@ -5,7 +5,7 @@
 <div class="card" *ngIf="!isLoading">
   <h4 class="card-header">Ilość dodanych pracowników ({{employees.length}})</h4>
   <div class="card-block">
-    <table class="table table-borderred table-striped">
+    <table class="table table-bordered table-striped">
       <thead aria-checked="thead-default">
         <tr>
           <th>Imię</th>
@@ -24,13 +24,13 @@
       </tbody>
       <tbody *ngIf="!isEditing">
         <tr *ngFor="let employee of employees">
-          <td>employee.firstname</td>
-          <td>employee.lastname</td>
-          <td>employee.street</td>
-          <td>employee.city</td>
-          <td>employee.postcode</td>
-          <td>employee.birthdate</td>
-          <td>employee.telephone</td>
+          <td>{{employee.firstname}}</td>
+          <td>{{employee.lastname}}</td>
+          <td>{{employee.street}}</td>
+          <td>{{employee.city}}</td>
+          <td>{{employee.postcode}}</td>
+          <td>{{employee.birthdate}}</td>
+          <td>{{employee.telephone}}</td>
           <td>
             <button class="btn btn-sm btn-warning" (click)="enableEditing(employee)"><i class="fa fa-pencil"></i> Edytuj</button>
           </td>
@@ -55,7 +55,7 @@
               <div class="form-group">
                 <input class="form-control" type="text" name="postcode" [(ngModel)]="employee.postcode" placeholder="Kod pocztowy" required>
               </div>
-              <div class="form-gorup">
+              <div class="form-group">
                 <input class="form-control" type="date" name="birthdate" [(ngModel)]="employee.birthdate" placeholder="Data Urodzenia" required>
               </div>
               <div class="form-group">
@@ -75,25 +75,25 @@
   <h4 class="card-header">Dodaj nowego pracownika</h4>
   <div class="card-block">
     <form class="form-inline" [formGroup]="addEmployeeForm" (ngSubmit)="addEmployee()" style="text-align: center">
-      <div class="form-inline">
+      <div class="form-group">
         <input class="form-control" type="text" name="firstname" formControlName="firstname" placeholder="Imię">
       </div>
-      <div class="form-inline">
+      <div class="form-group">
         <input class="form-control" type="text" name="lastname" formControlName="lastname" placeholder="Nazwisko">
       </div>
-      <div class="form-inline">
+      <div class="form-group">
         <input class="form-control" type="text" name="street" formControlName="street" placeholder="Ulica">
       </div>
-      <div class="form-inline">
+      <div class="form-group">
         <input class="form-control" type="text" name="city" formControlName="city" placeholder="Miasto">
       </div>
-      <div class="form-inline">
+      <div class="form-group">
         <input class="form-control" type="text" name="postcode" formControlName="postcode" placeholder="Kod pocztowy">
       </div>
-      <div class="form-inline">
+      <div class="form-group">
         <input class="form-control" type="date" name="birthdate" formControlName="birthdate" placeholder="Data urodzenia">
       </div>
-      <div class="form-inline">
+      <div class="form-group">
         <input class="form-control" type="text" name="telephone" formControlName="telephone" placeholder="Numer telefonu"></div>
       <button class="btn btn-primary" type="submit" [disabled]="!addEmployeeForm.valid"><i class="fa fa-floppy-o"></i> Dodaj</button>
     </form>

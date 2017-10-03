@@ -3,12 +3,12 @@
 <div class="card">
   <h4 class="card-header">Logowanie</h4>
   <div class="card-block">
-    <form [formGroup]="loginForm" (ngSubmit)="login()" >
-      <div class="input-group">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="input-group" [ngClass]="setClassEmail()">
         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
         <input class="form-control" type="email" name="email" formControlName="email" placeholder="Adres email" autofocus>
       </div>
-      <div class="input-group">
+      <div class="input-group" [ngClass]="setClassPassword()">
         <span class="input-group-addon"><i class="fa fa-key"></i></span>
         <input class="form-control" type="password" name="password" formControlName="password" placeholder="Hasło">
       </div>

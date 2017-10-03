@@ -2,35 +2,33 @@
 
     <nav class="navbar navbar-dark bg-primary">
         <div class="nav navbar-nav">
-
             <a routerLink="/" class="nav-item nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-                <i class="fa fa-home">Strona główna</i>
+                <i class="fa fa-home"></i> Strona główna
             </a>
 
             <a routerLink="/employees" class="nav-item nav-link" routerLinkActive="active">
-                <i class="fa fa-home">Pracownicy</i>
+                <i class="fa fa-list"></i> Pracownicy
             </a>
 
             <a routerLink="/login" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
-                <i class="fa fa-home">Logowanie</i>
+                <i class="fa fa-sign-in"></i> Logowanie
             </a>
 
             <a routerLink="/register" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
-                <i class="fa fa-home">Rejestracja</i>
+                <i class="fa fa-user-plus"></i> Rejestracja
             </a>
 
-            <a routerLink="/account" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
-                <i class="fa fa-home">Konto ({{auth.currentUser.username}})</i>
+            <a routerLink="/account" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
+                <i class="fa fa-user"></i> Konto ({{auth.currentUser.username}})
             </a>
 
-            <a routerLink="/admin" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn && auth.isAdmin">
-                <i class="fa fa-home">Admin</i>
+            <a routerLink="/admin" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn && auth.isAdmin">
+                <i class="fa fa-lock"></i> Admin
             </a>
             
-            <a routerLink="/logout" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
-                <i class="fa fa-home">Wyloguj się</i>
+            <a routerLink="/logout" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
+                <i class="fa fa-sign-out"></i> Wyloguj się
             </a>
-
         </div>
     </nav>
 

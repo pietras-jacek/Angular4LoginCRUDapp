@@ -6,6 +6,7 @@ import Employee from './models/employee';
 import User from './models/user';
 
 export default function setRoutes(app) {
+    
     const router = express.Router();
 
     const employeeCtrl = new EmployeeCtrl();

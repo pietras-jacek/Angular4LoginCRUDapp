@@ -23,13 +23,13 @@ export class EmployeesComponent implements OnInit {
   street = new FormControl('', Validators.required);
   city = new FormControl('', Validators.required);
   postcode = new FormControl('', Validators.required);
-  birthday = new FormControl('', Validators.required);
+  birthdate = new FormControl('', Validators.required);
   telephone = new FormControl('', Validators.required);
 
   constructor(private employeeService: EmployeeService,
               private formBuilder: FormBuilder,
               private http: Http,
-            public toast: ToastComponent) { }
+              public toast: ToastComponent) { }
 
   ngOnInit() {
     this.getEmployees();
@@ -39,7 +39,7 @@ export class EmployeesComponent implements OnInit {
       street: this.street,
       city: this.city,
       postcode: this.postcode,
-      birthday: this.birthday,
+      birthdate: this.birthdate,
       telephone: this.telephone
     });
   }

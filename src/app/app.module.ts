@@ -6,7 +6,7 @@ import { SharedModule } from './shared/shared.module';
 import { EmployeeService } from './services/employee.service';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
-import { AuthGuradLogin } from './services/auth-guard-login.service';
+import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
@@ -17,8 +17,6 @@ import { LogoutComponent } from './logout/logout.component';
 import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { LoadingComponent } from './shared/loading/loading.component';
-import { ToastComponent } from './shared/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -31,18 +29,14 @@ import { ToastComponent } from './shared/toast/toast.component';
     AccountComponent,
     AdminComponent,
     NotFoundComponent,
-    AssetsComponent,
-    LoadingComponent,
-    ToastComponent
   ],
   imports: [
-    BrowserModule,
     RoutingModule,
     SharedModule
   ],
   providers: [
     AuthService,
-    AuthGuradLogin,
+    AuthGuardLogin,
     AuthGuardAdmin,
     EmployeeService,
     UserService

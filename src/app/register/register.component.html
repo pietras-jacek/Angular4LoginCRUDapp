@@ -6,10 +6,10 @@
     <form [formGroup]="registerForm" (ngSubmit)="register()">
       <div class="input-group" [ngClass]="setClassUsername()">
         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-        <input class="form-control" type="text" name="username" formControlName="username" placeholder="Login" autofocus>
+        <input class="form-control" type="text" name="username" formControlName="username" placeholder="Nazwa użytkownika" autofocus>
       </div>
-      <div class="input-grup" [ngClass]="setClassEmail()">
-        <span class="input-grup-addon"><i class="fa fa-envelope"></i></span>
+      <div class="input-group" [ngClass]="setClassEmail()">
+        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
         <input class="form-control" type="email" name="email" formControlName="email" placeholder="Adres email">
       </div>
       <div class="input-group" [ngClass]="setClassPassword()">
@@ -21,10 +21,10 @@
         <select class="form-control" name="role" formControlName="role">
           <option value="" selected disabled>Uprawnienia</option>
           <option value="user">Użytkownik</option>
-          <option value="">Administrator</option>
+          <option value="admin">Administrator</option>
         </select>
       </div>
-      <button class="btn btn-primary" type="submit" [disabled]="!registerForm.valid"><i class="fa fa-user-plus"> Zarejestruj</i></button>
+      <button class="btn btn-primary" type="submit" [disabled]="!registerForm.valid"><i class="fa fa-user-plus"></i> Zarejestruj</button>
     </form>
   </div>
 </div>
