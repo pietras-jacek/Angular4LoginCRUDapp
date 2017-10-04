@@ -15,11 +15,12 @@
           <th>Kod pocztowy</th>
           <th>Data urodzenia</th>
           <th>Numer telefonu</th>
+          <th>Akcja</th>
         </tr>
       </thead>
       <tbody *ngIf="employees.length === 0">
         <tr>
-          <td colspan="4">Brak pracowników w bazie danych. Dodaj nowego.</td>
+          <td colspan="8">Brak pracowników w bazie danych. Dodaj nowego.</td>
         </tr>
       </tbody>
       <tbody *ngIf="!isEditing">
@@ -31,15 +32,15 @@
           <td>{{employee.postcode}}</td>
           <td>{{employee.birthdate}}</td>
           <td>{{employee.telephone}}</td>
-          <td>
+          <td> 
             <button class="btn btn-sm btn-warning" (click)="enableEditing(employee)"><i class="fa fa-pencil"></i> Edytuj</button>
           </td>
         </tr>
       </tbody>
       <tbody *ngIf="isEditing">
         <tr>
-          <td colspan="4">
-            <form class="form-inline" #form="ngForm" (ngSubmit)="editEmployee(employee)" style="display:inline">
+          <td colspan="7">
+            <form class="form-horizontal" #form="ngForm" (ngSubmit)="editEmployee(employee)" style="text-align:center">  
               <div class="form-group">
                 <input class="form-control" type="text" name="firstname" [(ngModel)]="employee.firstname" placeholder="Imię" required>
               </div>
